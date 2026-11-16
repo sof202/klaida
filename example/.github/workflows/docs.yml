@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install klaida -e .
+      - run: pip install klaida .
       - run: klaida check          # fails the PR if a page is missing or stale
       - uses: actions/upload-pages-artifact@v3
         with: {path: docs}
