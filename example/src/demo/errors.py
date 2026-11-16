@@ -21,13 +21,24 @@ class ShapeMismatch(DemoError):
 
     code = "E1001"
     summary = "Input arrays have different lengths"
-    cause = "x and y came from different sources, or only one of them was filtered."
+    cause = (
+        "x and y came from different sources, or only one of them was "
+        "filtered."
+    )
     fix = "Check that len(x) == len(y) before calling fit()."
     hint = "len(x) must equal len(y)"
 
 
 class ConfigMissing(DemoError):
+    """Raised when there is no config."""
+
     code = "E1002"
     summary = "Config file not found"
-    cause = "The path passed to load() does not exist, or is relative to a different directory."
-    fix = "Pass an absolute path, or run from the directory that contains the file."
+    cause = (
+        "The path passed to load() does not exist, or is relative to a "
+        "different directory."
+    )
+    fix = (
+        "Pass an absolute path, or run from the directory that contains the "
+        "file."
+    )
