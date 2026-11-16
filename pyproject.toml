@@ -1,0 +1,49 @@
+[project]
+name = "klaida"
+version = "0.1.0"
+authors = [
+    {name = "Sam Fletcher", email = "s.o.fletcher@exeter.ac.uk"},
+]
+description = "One class per error, rendered to human/LLM-friendly docs pages."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["tomli>=2; python_version < '3.11'"]
+optional-dependencies = { dev = ["pytest"] }
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.scripts]
+klaida = "klaida.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length=79
+indent-width=4
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle-error
+    "W", # pycodestyle-warning
+    "F", # pyflakes
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "SIM", # flake8-simplify
+    "ANN", # flake8-annotations
+    "I", # isort
+    "PD", # Pandas-vet
+    "C90", # maccabe
+    "D", # pydocstyle
+    "PERF", # perflint
+]
+ignore = [
+    "D107", # undocumented-public-init (redundant for most __init__() methods)
+    "D203",  # one-blank-line-before-class (conflicts with D211)
+    "D213",  # summary-second-line (conflicts with D212)
+]
