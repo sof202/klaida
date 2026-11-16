@@ -1,0 +1,29 @@
+# Copy to your project's .github/workflows/docs.yml.
+# Repo settings -> Pages -> Source: "GitHub Actions".
+name: docs
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install klaida -e .
+      - run: klaida check          # fails the PR if a page is missing or stale
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: docs}
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: {name: github-pages}
+    steps:
+      - uses: actions/deploy-pages@v4

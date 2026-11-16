@@ -1,0 +1,8 @@
+[project]
+name = "demo"
+version = "0.0.1"
+
+[tool.klaida]
+modules = ["demo.errors"]
+output = "docs/errors"
+title = "demo error reference"

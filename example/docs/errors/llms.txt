@@ -1,0 +1,8 @@
+# demo error reference
+
+> One page per error. Each page gives the cause and the fix for that > error code.
+
+## Errors
+
+- [E1001: Input arrays have different lengths](https://yourname.github.io/demo/errors/E1001.md): x and y came from different sources, or only one of them was filtered.
+- [E1002: Config file not found](https://yourname.github.io/demo/errors/E1002.md): The path passed to load() does not exist, or is relative to a different directory.
