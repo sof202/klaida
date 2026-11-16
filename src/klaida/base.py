@@ -44,7 +44,7 @@ class DocumentedError(Exception):
     hint: ClassVar[str] = ""  # optional, <= 80 chars, shown in the message
     docs_base: ClassVar[str] = ""
 
-    def __init_subclass__(cls, **kwargs) -> None:
+    def __init_subclass__(cls, **kwargs) -> None:  # noqa: ANN003 (see BaseException)
         """Register subclass for klaida."""
         super().__init_subclass__(**kwargs)
         if "code" not in cls.__dict__:
