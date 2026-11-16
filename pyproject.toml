@@ -15,6 +15,10 @@ license-files = ["LICENSE"]
 [project.scripts]
 klaida = "klaida.cli:main"
 
+[project.urls]
+Homepage = "https://github.com/sof202/klaida"
+Repository = "https://github.com/sof202/klaida"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
