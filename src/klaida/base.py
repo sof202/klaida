@@ -51,8 +51,9 @@ class DocumentedError(Exception):
             return  # intermediate base class (e.g. the per-project one)
         if not _CODE_RE.match(cls.code):
             raise TypeError(
-                f"{cls.__qualname__}: code {cls.code!r} must be non-empty and use "
-                "only letters, digits, '-' and '_' (it becomes a URL path)."
+                f"{cls.__qualname__}: code {cls.code!r} must be non-empty and "
+                "use only letters, digits, '-' and '_' "
+                "(it becomes a URL path)."
             )
         if not cls.summary:
             raise TypeError(
